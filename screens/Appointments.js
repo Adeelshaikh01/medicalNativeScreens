@@ -4,13 +4,15 @@ import { Ionicons, EvilIcons } from '@expo/vector-icons';
 
 
 
-export default function Appointments() {
+export default function Appointments(props) {
 
     return (
         <ScrollView style={styles.scrollView}>
             <View style={styles.container}>
                 <View style={styles.header}>
+                    <TouchableOpacity onPress={() => props.navigation.goBack()}>
                     <Ionicons name="chevron-back" size={26} color="#181461" />
+                    </TouchableOpacity>
                     <Ionicons name="person-circle-outline" size={26} color="#181461" />
                 </View>
                 <View style={styles.body}>
@@ -55,7 +57,9 @@ export default function Appointments() {
                                 <Text style={{ color: "#2A2AC0", fontWeight: "bold" }}>Modify</Text>
                             </View>
                         </View>
-                        <TouchableOpacity style={styles.mButton}>
+                        <TouchableOpacity style={styles.mButton}
+                            onPress={() => props.navigation.navigate('BookAppointment')}
+                        >
                             <Text style={{ color: "#fff" }}>Book a new appointment</Text>
                         </TouchableOpacity>
                     </View>

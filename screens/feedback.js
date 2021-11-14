@@ -4,13 +4,15 @@ import { Ionicons, EvilIcons,MaterialCommunityIcons   } from '@expo/vector-icons
 
 
 
-export default function Feedback() {
+export default function Feedback(props) {
 
     return (
         <ScrollView style={styles.scrollView}>
             <View style={styles.container}>
                 <View style={styles.header}>
+                <TouchableOpacity onPress={() => props.navigation.goBack()}>
                     <Ionicons name="chevron-back" size={26} color="#181461" />
+                    </TouchableOpacity>
                     <Ionicons name="person-circle-outline" size={26} color="#181461" />
                 </View>
                 <View style={styles.body}>
@@ -40,7 +42,9 @@ export default function Feedback() {
                         numberOfLines={8}
                         textAlignVertical={'top'}
                     />
-                     <TouchableOpacity style={styles.mButton}>
+                     <TouchableOpacity style={styles.mButton}
+                     onPress={() => props.navigation.navigate('Notifications')}
+                     >
                             <Text style={{ color: "#fff" }}>Add feedback</Text>
                         </TouchableOpacity>
                 </View>

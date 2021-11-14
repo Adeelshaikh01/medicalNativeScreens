@@ -4,13 +4,15 @@ import { Ionicons, EvilIcons,MaterialCommunityIcons   } from '@expo/vector-icons
 
 
 
-export default function Payment() {
+export default function Payment(props) {
 
     return (
         <ScrollView style={styles.scrollView}>
             <View style={styles.container}>
                 <View style={styles.header}>
+                <TouchableOpacity onPress={() => props.navigation.goBack()}>
                     <Ionicons name="chevron-back" size={26} color="#181461" />
+                    </TouchableOpacity>
                     <Ionicons name="person-circle-outline" size={26} color="#181461" />
                 </View>
                 <View style={styles.body}>
@@ -44,7 +46,9 @@ export default function Payment() {
                     <Text style={{color:"#000",fontSize: 14,marginVertical:10}}>
                         Manage Cards <MaterialCommunityIcons name="greater-than" size={14} color="#000" />
                     </Text>
-                    <TouchableOpacity style={styles.mButton}>
+                    <TouchableOpacity style={styles.mButton}
+                    onPress={() => props.navigation.navigate('PaymentConfirm')}
+                    >
                             <Text style={{ color: "#fff" }}>Book a new appointment</Text>
                         </TouchableOpacity>
                 </View>

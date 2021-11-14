@@ -3,7 +3,7 @@ import { StyleSheet, View, Image, Text, TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
 
-export default function Welcome() {
+export default function Welcome(props) {
 
     return (
         <><View style={styles.container}>
@@ -18,6 +18,7 @@ export default function Welcome() {
             <View style={styles.buttonContainer}>
                 <TouchableOpacity
                     style={styles.mButton}
+                    onPress={() => props.navigation.navigate('MobileNumber')}
                 >
                     <Text style={{ color: "#fff" }}>Sign in with mobile number</Text>
                 </TouchableOpacity>
@@ -42,7 +43,8 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        width: "100%"
+        width: "100%",
+        backgroundColor: '#ECF1FA',
     },
     tinyLogo: {
         width: 120,
@@ -88,6 +90,7 @@ const styles = StyleSheet.create({
     },
     footer: {
         flex: 0.1,
+        alignItems: "center"
     },
     linkText: {
         color: "#2A2AC0"

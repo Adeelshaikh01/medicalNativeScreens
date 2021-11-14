@@ -2,7 +2,7 @@ import React from "react"
 import { StyleSheet, View, Image, Text, TouchableOpacity, TextInput } from 'react-native';
 import { EvilIcons } from '@expo/vector-icons';
 
-export default function Location() {
+export default function Location(props) {
 
     return (
         <View style={styles.container}>
@@ -22,7 +22,9 @@ export default function Location() {
                         placeholder="Your Location"
                     />
                 </View>
-                <TouchableOpacity style={styles.mButton}>
+                <TouchableOpacity style={styles.mButton}
+                onPress={() => props.navigation.navigate('Map')}
+                >
                     <Text style={{ color: "#fff" }}>Continue</Text>
                 </TouchableOpacity>
             </View>

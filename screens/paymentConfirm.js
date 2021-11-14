@@ -4,18 +4,20 @@ import { Ionicons, EvilIcons,   } from '@expo/vector-icons';
 
 
 
-export default function PaymentConfirm() {
+export default function PaymentConfirm(props) {
 
     return (
         <ScrollView style={styles.scrollView}>
             <View style={styles.container}>
                 <View style={styles.header}>
+                <TouchableOpacity onPress={() => props.navigation.goBack()}>
                     <Ionicons name="chevron-back" size={26} color="#181461" />
+                    </TouchableOpacity>
                     <Ionicons name="person-circle-outline" size={26} color="#181461" />
                 </View>
                 <View style={styles.body}>
                 <View style={{flexDirection: "row",alignItems: "center",marginVertical: 20}}>
-                <Image source={require("../assets/images/greenMark.png")}/>
+                    <Image source={require("../assets/images/greenMark.png")}/>
                 <Text style={{ fontSize: 16,fontWeight: "bold",marginLeft:5 }}>Appointment Confirmed!</Text>
                 </View>
                     <View style={styles.card}>
@@ -35,7 +37,9 @@ export default function PaymentConfirm() {
                         
                         </View>
                     
-                    <TouchableOpacity style={styles.mButton}>
+                    <TouchableOpacity style={styles.mButton}
+                    onPress={() => props.navigation.navigate('Feedback')}
+                    >
                             <Text style={{ color: "#fff" }}>Add to calendar</Text>
                         </TouchableOpacity>
 

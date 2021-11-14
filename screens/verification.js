@@ -2,7 +2,7 @@ import React from "react"
 import { StyleSheet, View, Image, Text, TouchableOpacity, TextInput } from 'react-native';
 import VerificationInput from "../components/VerificationInput";
 
-export default function Verification() {
+export default function Verification(props) {
 
     return (
         <View style={styles.container}>
@@ -16,7 +16,9 @@ export default function Verification() {
             </View>
             <View style={styles.buttonContainer}>
                 <VerificationInput />
-                <TouchableOpacity style={styles.mButton}>
+                <TouchableOpacity style={styles.mButton}
+                onPress={() => props.navigation.navigate('Location')}
+                >
                     <Text style={{ color: "#fff" }}>Continue</Text>
                 </TouchableOpacity>
                 <View style={styles.linksContainer}>

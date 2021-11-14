@@ -1,7 +1,7 @@
 import React from "react"
 import { StyleSheet, View, Image, Text, TouchableOpacity, TextInput } from 'react-native';
 
-export default function MobileNumber() {
+export default function MobileNumber(props) {
 
     return (
         <View style={styles.container}>
@@ -21,6 +21,7 @@ export default function MobileNumber() {
                 />
                 <TouchableOpacity
                     style={styles.mButton}
+                    onPress={() => props.navigation.navigate('Verification')}
                 >
                     <Text style={{ color: "#fff" }}>Continue</Text>
                 </TouchableOpacity>

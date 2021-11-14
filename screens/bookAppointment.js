@@ -4,16 +4,12 @@ import { FontAwesome5, EvilIcons, Ionicons, Entypo } from '@expo/vector-icons';
 
 
 
-export default function BookAppointment() {
+export default function BookAppointment(props) {
 
     return (
         <ScrollView style={styles.scrollView}>
             <View style={styles.container}>
                 <View style={styles.header}>
-                    <View style={styles.headerItems}>
-                        <FontAwesome5 name="bars" size={24} color="#181461" />
-                        <Ionicons name="person-circle-outline" size={26} color="#181461" />
-                    </View>
                     <Text style={styles.infoText}>Book an appointment</Text>
                 </View>
                 <View style={styles.body}>
@@ -39,7 +35,9 @@ export default function BookAppointment() {
                                 placeholder="Select Date"
                                 />
                         </View>
-                        <TouchableOpacity style={styles.mButton}>
+                        <TouchableOpacity style={styles.mButton}
+                        onPress={() => props.navigation.navigate('DoctorDetails')}
+                        >
                             <Text style={{ color: "#fff" }}>Search</Text>
                         </TouchableOpacity>
                     </View>
@@ -135,16 +133,8 @@ const styles = StyleSheet.create({
     },
     header: {
         width: "100%",
-        height: 150,
         paddingHorizontal: 20,
         backgroundColor: "#fff"
-    },
-    headerItems: {
-        width: "100%",
-        marginTop: 50,
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center"
     },
     body: {
         marginTop: 20,

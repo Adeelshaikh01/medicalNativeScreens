@@ -4,13 +4,15 @@ import { Ionicons } from '@expo/vector-icons';
 
 
 
-export default function DoctorDetails() {
+export default function DoctorDetails(props) {
 
     return (
         <ScrollView style={styles.scrollView}>
             <View style={styles.container}>
                 <View style={styles.header}>
+                <TouchableOpacity onPress={() => props.navigation.goBack()}>
                     <Ionicons name="chevron-back" size={26} color="#181461" />
+                    </TouchableOpacity>
                     <Ionicons name="person-circle-outline" size={26} color="#181461" />
                 </View>
                 <View style={styles.body}>
@@ -85,7 +87,9 @@ export default function DoctorDetails() {
 
                     </ScrollView>
                     <View style={styles.tabContainer}>
-                    <TouchableOpacity style={styles.mButton}>
+                    <TouchableOpacity style={styles.mButton}
+                    onPress={() => props.navigation.navigate('Payment')}
+                    >
                             <Text style={{ color: "#fff" }}>Book appointment</Text>
                         </TouchableOpacity>
                         <View style={styles.tabBtn}>

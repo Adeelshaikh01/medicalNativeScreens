@@ -4,7 +4,7 @@ import { StyleSheet, View, Dimensions, TextInput, TouchableOpacity, Text } from 
 import { EvilIcons } from '@expo/vector-icons';
 
 
-export default function Map() {
+export default function Map(props) {
     return (
         <View style={styles.container}>
             <MapView style={styles.map}
@@ -22,7 +22,9 @@ export default function Map() {
                     placeholder="Your Location"
                 />
             </View>
-            <TouchableOpacity style={styles.mButton}>
+            <TouchableOpacity style={styles.mButton}
+            onPress={() => props.navigation.navigate('Dashboard')}
+            >
                 <Text style={{ color: "#fff" }}>Confirm</Text>
             </TouchableOpacity>
         </View>
